@@ -1,0 +1,58 @@
+[project]
+name = "edf-fossil"
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+keywords = ["cli", "collector", "offline", "triage"]
+description = "A post-mortem analysis tool for raw disk images"
+requires-python = ">=3.12"
+dynamic = ["version"]
+authors = [
+  { name="CERT-EDF", email="cert@edf.fr" },
+]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: End Users/Desktop",
+    "Operating System :: POSIX :: Linux",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Topic :: Utilities",
+    "Topic :: Security",
+]
+dependencies = [
+    "generaptor~=15.2",
+]
+
+
+[project.urls]
+"Homepage" = "https://github.com/cert-edf/fossil"
+"Repository" = "https://github.com/cert-edf/fossil"
+"Bug Tracker" = "https://github.com/cert-edf/fossil/issues"
+
+
+[project.scripts]
+fossil = "edf_fossil.main:app"
+
+
+[build-system]
+requires = ["setuptools>=78", "setuptools_scm>=8.2", "wheel"]
+build-backend = "setuptools.build_meta"
+
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["edf_fossil", "edf_fossil.*"]
+
+
+[tool.setuptools_scm]
+version_file = "edf_fossil/__version__.py"
+
+
+[tool.black]
+line-length = 79
+skip-string-normalization = true
+
+
+[tool.isort]
+profile = "black"
+line_length = 79
