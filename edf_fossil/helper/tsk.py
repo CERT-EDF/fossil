@@ -65,7 +65,6 @@ def _exec(cache: Path, argv: list[str], pattern: Pattern) -> MatchIterator:
 
 @dataclass(kw_only=True)
 class TheSleuthKit:
-
     cache: Path
     image_is_partition: bool
 
